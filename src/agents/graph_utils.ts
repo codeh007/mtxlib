@@ -5,7 +5,7 @@ import {
 } from "@langchain/core/messages";
 import { parsePartialJson } from "@langchain/core/output_parsers";
 import type { Artifact } from "mtmaiapi";
-import { cleanContent } from "../lib/s-utils";
+import { cleanContent } from "mtxuilib/lib/s-utils.js";
 import type {
   ArtifactToolResponse,
   ArtifactMarkdownV3,
@@ -13,7 +13,7 @@ import type {
   ProgrammingLanguageOptions,
   ArtifactV3,
   RewriteArtifactMetaToolResponse,
-} from "../types/opencanvasTypes";
+} from "mtxuilib/types/opencanvasTypes.js";
 // import { cleanContent } from "mtxuilib/lib/utils";
 // import type {
 //   Artifact,

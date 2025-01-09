@@ -1,5 +1,5 @@
 import type { LangGraphRunnableConfig } from "@langchain/langgraph";
-import { isArtifactMarkdownContent } from "../../../../lib/artifact_content_types";
+import { isArtifactMarkdownContent } from "mtxuilib/lib/artifact_content_types.js";
 import {
   getFormattedReflections,
   getModelFromConfig,

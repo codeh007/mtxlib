@@ -13,7 +13,7 @@ import {
   START,
   StateGraph,
 } from "@langchain/langgraph";
-import { getLlm } from "../llm/llm";
+import { getLlm } from "mtxuilib/llm/llm.js";
 async function myChatBot(messages: BaseMessageLike[]): Promise<AIMessageChunk> {
   const systemMessage = {
     role: "system",

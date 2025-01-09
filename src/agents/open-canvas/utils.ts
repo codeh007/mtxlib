@@ -1,8 +1,7 @@
 import type { LangGraphRunnableConfig } from "@langchain/langgraph";
-import type { Artifact } from "../../types";
+import type { Artifact } from "mtxuilib/types/index.js";
 import { getModelConfig } from "../agentUtils";
 import { initChatModel } from "langchain/chat_models/universal";
-
 
 export const formatArtifacts = (
   messages: Artifact[],

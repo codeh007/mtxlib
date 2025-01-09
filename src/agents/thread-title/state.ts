@@ -1,5 +1,5 @@
 import { Annotation, MessagesAnnotation } from "@langchain/langgraph";
-import type { ArtifactV3 } from "../../types";
+import type { ArtifactV3 } from "mtxuilib/types/index.js";
 
 export const TitleGenerationAnnotation = Annotation.Root({
   /**

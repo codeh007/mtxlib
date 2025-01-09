@@ -1,5 +1,5 @@
 import type { LangGraphRunnableConfig } from "@langchain/langgraph";
-import type { Reflections } from "../../../types";
+import type { Reflections } from "mtxuilib/types/index.js";
 import { getArtifactContent } from "../../graph_utils";
 import {
   ensureStoreInConfig,

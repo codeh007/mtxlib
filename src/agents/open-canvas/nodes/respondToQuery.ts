@@ -1,6 +1,6 @@
 import type { LangGraphRunnableConfig } from "@langchain/langgraph";
 import { ChatOpenAI } from "@langchain/openai";
-import type { Reflections } from "../../../types";
+import type { Reflections } from "mtxuilib/types/index.js";
 import type {
   OpenCanvasGraphAnnotation,
   OpenCanvasGraphReturnType,

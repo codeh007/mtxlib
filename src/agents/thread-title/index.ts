@@ -6,7 +6,7 @@ import {
 import { Client } from "@langchain/langgraph-sdk";
 import { ChatOpenAI } from "@langchain/openai";
 import { z } from "zod";
-import { isArtifactMarkdownContent } from "../../lib/artifact_content_types";
+import { isArtifactMarkdownContent } from "mtxuilib/lib/artifact_content_types.js";
 import { getArtifactContent } from "../graph_utils";
 import { TITLE_SYSTEM_PROMPT, TITLE_USER_PROMPT } from "./prompts";
 import {

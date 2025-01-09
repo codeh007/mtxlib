@@ -1,6 +1,6 @@
 import type { LangGraphRunnableConfig } from "@langchain/langgraph";
-import { isArtifactCodeContent } from "../../../lib/artifact_content_types";
-import type { ArtifactCodeV3, ArtifactV3 } from "../../../types";
+import { isArtifactCodeContent } from "mtxuilib/lib/artifact_content_types.js";
+import type { ArtifactCodeV3, ArtifactV3 } from "mtxuilib/types/index.js";
 import { getModelFromConfig } from "../../agentUtils";
 import { getArtifactContent } from "../../graph_utils";
 import {

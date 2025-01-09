@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { PROGRAMMING_LANGUAGES } from "../../../../types";
+import { PROGRAMMING_LANGUAGES } from "mtxuilib/types/index.js";
 
 export const OPTIONALLY_UPDATE_ARTIFACT_META_SCHEMA = z.object({
   type: z.enum(["text", "code"]).describe("The type of the artifact content."),

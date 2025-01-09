@@ -1,7 +1,7 @@
 import { ChatOpenAI } from "@langchain/openai";
 import { OpenCanvasGraphAnnotation, OpenCanvasGraphReturnType } from "../state";
 import { NEW_ARTIFACT_PROMPT } from "../prompts";
-import { Artifact, Reflections } from "../../../types";
+import { Artifact, Reflections } from "mtxuilib/types/index.js";
 import { z } from "zod";
 import { v4 as uuidv4 } from "uuid";
 import { ensureStoreInConfig, formatReflections } from "@/agent/utils";
@@ -12,7 +12,7 @@ import { LangGraphRunnableConfig } from "@langchain/langgraph";
  */
 export const generateArtifact = async (
   state: typeof OpenCanvasGraphAnnotation.State,
-  config: LangGraphRunnableConfig
+  config: LangGraphRunnableConfig,
 ): Promise<OpenCanvasGraphReturnType> => {
   const smallModel = new ChatOpenAI({
     model: "gpt-4o-mini",
@@ -45,7 +45,7 @@ export const generateArtifact = async (
               "The language of the artifact to generate. " +
                 " If generating code, it should be the programming language. " +
                 "For programming languages, ensure it's one of the following" +
-                "'javascript' | 'typescript' | 'cpp' | 'java' | 'php' | 'python' | 'html' | 'other'"
+                "'javascript' | 'typescript' | 'cpp' | 'java' | 'php' | 'python' | 'html' | 'other'",
             ),
           artifact: z
             .string()
@@ -53,17 +53,17 @@ export const generateArtifact = async (
           title: z
             .string()
             .describe(
-              "A short title to give to the artifact. Should be less than 5 words."
+              "A short title to give to the artifact. Should be less than 5 words.",
             ),
         }),
       },
     ],
-    { tool_choice: "generate_artifact" }
+    { tool_choice: "generate_artifact" },
   );
 
   const formattedNewArtifactPrompt = NEW_ARTIFACT_PROMPT.replace(
     "{reflections}",
-    memoriesAsString
+    memoriesAsString,
   );
 
   const response = await modelWithArtifactTool.invoke(
@@ -71,7 +71,7 @@ export const generateArtifact = async (
       { role: "system", content: formattedNewArtifactPrompt },
       ...state.messages,
     ],
-    { runName: "generate_artifact" }
+    { runName: "generate_artifact" },
   );
   const newArtifact: Artifact = {
     id: response.id ?? uuidv4(),

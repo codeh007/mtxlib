@@ -1,11 +1,11 @@
 import type { BaseStore, LangGraphRunnableConfig } from "@langchain/langgraph";
 import { initChatModel } from "langchain/chat_models/universal";
-import { isArtifactCodeContent } from "../lib/artifact_content_types";
+import { isArtifactCodeContent } from "mtxuilib/lib/artifact_content_types.js";
 import type {
   ArtifactCodeV3,
   ArtifactMarkdownV3,
   Reflections,
-} from "../types/opencanvasTypes";
+} from "mtxuilib/types/opencanvasTypes.js";
 
 export const formatReflections = (
   reflections: Reflections,

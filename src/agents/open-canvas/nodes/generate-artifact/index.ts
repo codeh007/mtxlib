@@ -1,5 +1,5 @@
 import type { LangGraphRunnableConfig } from "@langchain/langgraph";
-import type { ArtifactV3 } from "../../../../types";
+import type { ArtifactV3 } from "mtxuilib/types/index.js";
 import {
   getFormattedReflections,
   getModelConfig,

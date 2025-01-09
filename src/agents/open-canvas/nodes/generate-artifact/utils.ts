@@ -1,5 +1,8 @@
 import type { ToolCall } from "@langchain/core/messages/tool";
-import type { ArtifactCodeV3, ArtifactMarkdownV3 } from "../../../../types";
+import type {
+  ArtifactCodeV3,
+  ArtifactMarkdownV3,
+} from "mtxuilib/types/index.js";
 import { NEW_ARTIFACT_PROMPT } from "../../prompts";
 
 export const formatNewArtifactPrompt = (
