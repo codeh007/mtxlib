@@ -1,0 +1,67 @@
+import { HumanMessage } from "@langchain/core/messages";
+import { PromptTemplate } from "@langchain/core/prompts";
+import { OpenAI } from "@langchain/openai";
+import { AgentExecutor, createReactAgent } from "langchain/agents";
+import { llmGet, promptGet } from "mtmaiapi";
+export class MtmaiAgent {
+  constructor(private tenantId: string) {
+    this.tenantId = tenantId;
+  }
+
+  async run(input: string) {
+    const promptText = await promptGet({
+      path: {
+        prompt: "react-chat",
+        tenant: this.tenantId,
+      },
+    });
+
+    const llmConfig = await llmGet({
+      path: {
+        slug: "default",
+        tenant: this.tenantId,
+      },
+      body: {},
+    });
+
+    console.log("llmConfig", llmConfig);
+
+    const tools = [];
+    const llm = new OpenAI({
+      model: llmConfig.data.model,
+      apiKey: llmConfig.data.api_key,
+      // baseURL: llmConfig.data.base_url,
+      // temperature: llmConfig.temperature,
+      configuration: {
+        baseURL: llmConfig.data.base_url,
+      },
+    });
+
+    const ptpl = PromptTemplate.fromTemplate(promptText!.data);
+
+    console.log("ptpl", ptpl);
+    const agent = await createReactAgent({
+      llm,
+      tools,
+      prompt: ptpl,
+    });
+
+    const agentExecutor = new AgentExecutor({
+      agent,
+      tools: [],
+    });
+
+    const messages = [
+      // ...state.messages,
+      new HumanMessage({ content: "hello" }),
+    ];
+
+    // See public LangSmith trace here: https://smith.langchain.com/public/d72cc476-e88f-46fa-b768-76b058586cc1/r
+    const result = await agentExecutor.invoke({
+      input: "what is LangChain?",
+      chat_history: messages,
+    });
+
+    console.log(result);
+  }
+}
