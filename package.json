@@ -66,7 +66,7 @@
   },
   "scripts": {
     "dev": "npx next dev",
-    "build": "bun run ./src/cli/main.ts build",
+    "build": "tsc --outDir dist --jsx react-jsx --incremental false --declaration true --noEmit false --removeComments true --project ${tsconfig}",
     "db:migrate": "bun run src/db/migrate.ts",
     "gen": "bun src/cli/main.ts gen"
   },
