@@ -1,0 +1,77 @@
+{
+  "compilerOptions": {
+    "target": "ESNEXT",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "WebWorker"
+    ],
+    "skipLibCheck": true,
+    "allowJs": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    // "emitDeclarationOnly": false,
+    "incremental": true,
+    "esModuleInterop": true,
+    "types": [
+      "node",
+      "react",
+      "react-dom",
+      "jest",
+      "@cloudflare/workers-types",
+      // "@cloudflare/workers-types/experimental",
+      "bun-types",
+      "jquery"
+    ],
+    "moduleResolution": "bundler",
+    // "moduleResolution": "node",
+    // "module": "ESNext",
+    "module": "ESNext" /* Specify what module code is generated. */,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    // "jsx": "preserve", //react-jsx
+    "jsx": "react-jsx", //react-jsx
+    // "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "rootDir": "./src",
+    "outDir": "dist",
+    // "typeRoots": [
+    //   "./node_modules/@types",
+    //   "./src/@types"
+    // ],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    // 添加以下配置使 TypeScript 更宽松
+    "noImplicitAny": false, // 允许隐式的 any 类型
+    // "ignoreDeprecations": "5.0", // 忽略某些废弃警告
+    "noUnusedLocals": false, // 允许未使用的局部变量
+    "noUnusedParameters": false, // 允许未使用的参数
+    "allowUnusedLabels": true, // 允许未使用的标签
+    "allowUnreachableCode": true, // 允许未到达的代码
+    "checkJs": false // 不检查 JavaScript 文件
+  },
+  "include": [
+    "src",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules/**/*.*",
+    ".vscode",
+    "public",
+    "src/.storybook",
+    "src/stories",
+    "src/__test__",
+    "src/lib",
+    "src/db",
+    "src/workflows",
+    "**/*.gen.ts"
+  ]
+}
